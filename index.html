@@ -94,7 +94,7 @@
     .brand-petals {
       position: absolute;
       left: 34px;
-      top: -7px;
+      top: -10px;
       width: 20px;
       height: 15px;
       pointer-events: none;
@@ -695,7 +695,10 @@
           const el = document.getElementById(key);
           if (el) el.value = params.get(key) || "";
         });
-        document.getElementById("landing_url").value = window.location.href;
+        document.getElementById("landing_url").value =
+          window.location.origin +
+          window.location.pathname +
+          window.location.search;
         document.getElementById("referrer").value = document.referrer || "";
       };
       setTrackingFields();
