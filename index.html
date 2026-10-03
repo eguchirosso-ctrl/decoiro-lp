@@ -30,14 +30,30 @@
       --soft: #e7dcd2;
       --shadow: 0 14px 40px rgba(71, 57, 47, 0.08);
       --radius: 24px;
+      --deco-charcoal: #393432;
+      --deco-charcoal-soft: #5f5753;
+      --deco-lavender: #b694b1;
+      --deco-lavender-dark: #9d7d99;
+      --deco-line: #c8b4a7;
+      --deco-petal-beige: #dcc2a6;
+      --deco-petal-lilac: #b8a3c2;
+      --deco-petal-mauve: #98799a;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
-      color: var(--ink);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      color: var(--deco-charcoal);
       background:
         radial-gradient(circle at 10% 0%, rgba(255,255,255,.8), transparent 30%),
         var(--bg);
@@ -63,10 +79,51 @@
       justify-content: space-between;
       gap: 16px;
     }
-    .brand {
-      font-weight: 800;
-      font-size: 20px;
+    .brand-lockup {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      color: var(--deco-charcoal);
+    }
+    .brand-ja {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 600;
       letter-spacing: .08em;
+    }
+    .brand-petals {
+      position: absolute;
+      left: 34px;
+      top: -7px;
+      width: 20px;
+      height: 15px;
+      pointer-events: none;
+    }
+    .brand-petals i {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 11px;
+      border-radius: 70% 70% 65% 65%;
+      transform-origin: 50% 100%;
+    }
+    .brand-petals i:nth-child(1) {
+      left: 0;
+      bottom: 0;
+      background: var(--deco-petal-beige);
+      transform: rotate(-36deg);
+    }
+    .brand-petals i:nth-child(2) {
+      left: 7px;
+      top: 0;
+      background: var(--deco-petal-lilac);
+      transform: rotate(4deg);
+    }
+    .brand-petals i:nth-child(3) {
+      right: 0;
+      bottom: 0;
+      background: var(--deco-petal-mauve);
+      transform: rotate(42deg);
     }
     .nav-cta {
       display: inline-flex;
@@ -76,7 +133,7 @@
       padding: 0 16px;
       border-radius: 999px;
       color: #fff;
-      background: var(--accent-dark);
+      background: var(--deco-lavender-dark);
       text-decoration: none;
       font-weight: 700;
       font-size: 13px;
@@ -130,18 +187,18 @@
       padding: 54px 0 54px 58px;
     }
     .eyebrow {
-      display: inline-flex;
+      display: block;
       width: fit-content;
-      gap: 8px;
-      align-items: center;
-      font-size: 13px;
-      color: #6f625a;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(111,98,90,.16);
-      border-radius: 999px;
-      padding: 7px 12px;
-      margin-bottom: 18px;
-      backdrop-filter: blur(6px);
+      margin-bottom: 23px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      color: #776d67;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
     }
     h1 {
       margin: 0;
@@ -149,41 +206,134 @@
       line-height: 1;
       letter-spacing: .08em;
     }
+    .hero-brand {
+      position: relative;
+      width: fit-content;
+      margin: 0;
+      color: var(--deco-charcoal);
+      line-height: 1;
+    }
+    .hero-brand-ja {
+      display: block;
+      font-size: clamp(52px, 6vw, 76px);
+      font-weight: 500;
+      letter-spacing: .08em;
+    }
+    .hero-brand-en {
+      display: block;
+      margin-top: 13px;
+      padding-left: 8px;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: .58em;
+      color: var(--deco-charcoal-soft);
+    }
+    .hero-brand-petals {
+      position: absolute;
+      left: clamp(78px, 9vw, 105px);
+      top: -15px;
+      width: 32px;
+      height: 25px;
+      pointer-events: none;
+    }
+    .hero-brand-petals i {
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 17px;
+      border-radius: 70% 70% 65% 65%;
+      transform-origin: 50% 100%;
+    }
+    .hero-brand-petals i:nth-child(1) {
+      left: 0;
+      bottom: 0;
+      background: var(--deco-petal-beige);
+      transform: rotate(-36deg);
+    }
+    .hero-brand-petals i:nth-child(2) {
+      left: 11px;
+      top: 0;
+      background: var(--deco-petal-lilac);
+      transform: rotate(4deg);
+    }
+    .hero-brand-petals i:nth-child(3) {
+      right: 0;
+      bottom: 0;
+      background: var(--deco-petal-mauve);
+      transform: rotate(42deg);
+    }
     .lead {
-      margin: 20px 0 7px;
-      font-size: clamp(24px, 3vw, 35px);
-      line-height: 1.45;
-      font-weight: 780;
-      letter-spacing: .01em;
+      margin: 36px 0 0;
+      color: var(--deco-charcoal);
+      font-size: clamp(35px, 4.1vw, 55px);
+      line-height: 1.48;
+      font-weight: 600;
+      letter-spacing: .025em;
+    }
+    .hero-divider {
+      width: 122px;
+      height: 1px;
+      margin: 28px 0 24px;
+      background: var(--deco-line);
     }
     .sublead {
-      margin: 0 0 28px;
-      color: #675e58;
-      font-size: 17px;
-      font-weight: 520;
+      max-width: 455px;
+      margin: 0 0 29px;
+      color: var(--deco-charcoal-soft);
+      font-size: 16px;
+      line-height: 1.9;
+      font-weight: 400;
+      letter-spacing: .04em;
     }
     .hero-cta {
       display: inline-flex;
       width: fit-content;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
-      padding: 0 26px;
+      min-height: 58px;
+      padding: 0 31px;
       border-radius: 999px;
-      background: #4d4038;
-      color: white;
+      background: linear-gradient(
+        90deg,
+        var(--deco-lavender) 0%,
+        #ad8baa 100%
+      );
+      color: #ffffff;
       text-decoration: none;
-      font-weight: 800;
-      box-shadow: 0 12px 30px rgba(53,42,36,.18);
-      transition: transform .18s ease, background .18s ease;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      box-shadow: 0 9px 24px rgba(133, 102, 129, .18);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .hero-cta:hover { transform: translateY(-1px); background: #3f342e; }
+    .hero-cta:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(
+        90deg,
+        #ae8cab 0%,
+        var(--deco-lavender-dark) 100%
+      );
+      box-shadow: 0 12px 28px rgba(133, 102, 129, .22);
+    }
     .microcopy { margin: 12px 0 0; font-size: 12px; color: #756a63; }
 
     section { padding: 68px 0; }
     .section-head { max-width: 720px; margin-bottom: 28px; }
-    .section-kicker { color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: .12em; }
-    h2 { margin: 7px 0 12px; font-size: clamp(28px, 7vw, 44px); line-height: 1.35; }
+    .section-kicker {
+      color: #967c91;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .2em;
+    }
+    h2 {
+      margin: 7px 0 12px;
+      color: var(--deco-charcoal);
+      font-size: clamp(28px, 7vw, 44px);
+      line-height: 1.5;
+      font-weight: 600;
+      letter-spacing: .025em;
+    }
     .section-copy { margin: 0; color: var(--muted); }
 
     .concept-card {
@@ -257,9 +407,10 @@
       min-height: 54px;
       border: 0;
       border-radius: 999px;
-      color: #fff;
-      background: var(--accent-dark);
-      font-weight: 800;
+      color: #ffffff;
+      background: var(--deco-lavender-dark);
+      font-weight: 700;
+      letter-spacing: .05em;
       cursor: pointer;
     }
     .submit:disabled { opacity: .55; cursor: wait; }
@@ -271,6 +422,13 @@
 
     footer { padding: 36px 0 54px; color: var(--muted); font-size: 12px; }
     .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; border-top: 1px solid var(--line); padding-top: 22px; }
+
+    .section-copy,
+    .feature p,
+    .safety-item span,
+    .form-note {
+      color: var(--deco-charcoal-soft);
+    }
 
 
     @media (max-width: 759px) {
@@ -306,6 +464,37 @@
       .sublead { font-size: 16px; margin-bottom: 24px; }
       .hero-cta { width: 100%; }
       .microcopy { text-align: center; }
+
+      .hero-brand-ja {
+        font-size: clamp(48px, 15vw, 62px);
+      }
+      .hero-brand-en {
+        margin-top: 11px;
+        font-size: 11px;
+        letter-spacing: .5em;
+      }
+      .hero-brand-petals {
+        left: 73px;
+        top: -12px;
+        transform: scale(.85);
+        transform-origin: left top;
+      }
+      .lead {
+        margin-top: 30px;
+        font-size: clamp(30px, 8.2vw, 38px);
+        line-height: 1.48;
+      }
+      .hero-divider {
+        width: 96px;
+        margin: 23px 0 20px;
+      }
+      .sublead {
+        font-size: 15px;
+        line-height: 1.85;
+      }
+      .hero-cta {
+        width: 100%;
+      }
     }
 
     @media (min-width: 760px) {
@@ -319,7 +508,14 @@
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">デコいろ</div>
+      <div class="brand-lockup" aria-label="デコいろ">
+        <span class="brand-ja">デコいろ</span>
+        <span class="brand-petals" aria-hidden="true">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
       <a class="nav-cta" href="#waitlist">リリース通知を受け取る</a>
     </div>
   </header>
@@ -333,9 +529,22 @@
           </div>
           <div class="hero-shade" aria-hidden="true"></div>
           <div class="hero-content">
-            <div class="eyebrow">✦ デコ作品が集まる新しいコミュニティ</div>
-            <h1 id="hero-title">デコいろ</h1>
+            <div class="eyebrow">デコ作品が集まる新しいコミュニティ</div>
+            <h1 id="hero-title" class="hero-brand" aria-label="デコいろ">
+              <span class="hero-brand-ja">デコいろ</span>
+
+              <span class="hero-brand-petals" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+
+              <span class="hero-brand-en">DECOIRO</span>
+            </h1>
             <p class="lead">好きなデコを、<br>もっと見つける。</p>
+
+            <div class="hero-divider" aria-hidden="true"></div>
+
             <p class="sublead">硬質ケース、手帳、スマホケース、痛バッグ、ぬい小物。いろいろなデコ作品を投稿して、見つけて、保存できるコミュニティ。</p>
             <a class="hero-cta" href="#waitlist">リリース通知を受け取る</a>
             <p class="microcopy">登録は無料です。リリース時にお知らせします。</p>
