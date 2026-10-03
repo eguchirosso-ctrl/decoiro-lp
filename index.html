@@ -10,6 +10,13 @@
   <meta property="og:title" content="デコいろ｜好きなデコを、もっと見つける。" />
   <meta property="og:description" content="いろいろなデコ作品を投稿して、見つけて、保存。デコのアイデアが集まるコミュニティ「デコいろ」。" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eguchirosso-ctrl.github.io/decoiro-lp/assets/x/decoiro-x-ad-landscape.png" />
+  <meta property="og:image:width" content="1734" />
+  <meta property="og:image:height" content="907" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="デコいろ｜好きなデコを、もっと見つける。" />
+  <meta name="twitter:description" content="いろいろなデコ作品を投稿して、見つけて、保存。デコのアイデアが集まるコミュニティ「デコいろ」。" />
+  <meta name="twitter:image" content="https://eguchirosso-ctrl.github.io/decoiro-lp/assets/x/decoiro-x-ad-landscape.png" />
   <style>
     :root {
       --bg: #f7f2eb;
@@ -474,12 +481,15 @@
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
-      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
-        const el = document.getElementById(key);
-        if (el) el.value = params.get(key) || "";
-      });
-      document.getElementById("landing_url").value = window.location.href;
-      document.getElementById("referrer").value = document.referrer || "";
+      const setTrackingFields = () => {
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+          const el = document.getElementById(key);
+          if (el) el.value = params.get(key) || "";
+        });
+        document.getElementById("landing_url").value = window.location.href;
+        document.getElementById("referrer").value = document.referrer || "";
+      };
+      setTrackingFields();
 
       const form = document.getElementById("waitlistForm");
       const button = document.getElementById("submitBtn");
@@ -511,6 +521,7 @@
           if (!response.ok) throw new Error("Form submission failed");
 
           form.reset();
+          setTrackingFields();
           success.classList.add("show");
           success.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (e) {
