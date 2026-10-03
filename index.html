@@ -17,24 +17,28 @@
   <meta name="twitter:title" content="デコいろ｜好きなデコを、もっと見つける。" />
   <meta name="twitter:description" content="いろいろなデコ作品を投稿して、見つけて、保存。デコのアイデアが集まるコミュニティ「デコいろ」。" />
   <meta name="twitter:image" content="https://eguchirosso-ctrl.github.io/decoiro-lp/assets/x/decoiro-x-ad-landscape.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" />
   <style>
     :root {
-      --bg: #f7f2eb;
-      --paper: #fffdfa;
-      --paper-2: #f1ebe4;
-      --ink: #3e3834;
-      --muted: #746b65;
-      --line: #e6ddd4;
-      --accent: #8a6f63;
-      --accent-dark: #665047;
-      --soft: #e7dcd2;
-      --shadow: 0 14px 40px rgba(71, 57, 47, 0.08);
-      --radius: 24px;
-      --deco-charcoal: #393432;
-      --deco-charcoal-soft: #5f5753;
-      --deco-lavender: #b694b1;
-      --deco-lavender-dark: #9d7d99;
-      --deco-line: #c8b4a7;
+      --bg: #F7F3EE;
+      --paper: #FFFDFC;
+      --paper-soft: #EEE7DF;
+
+      --ink: #342F2D;
+      --text: #665D58;
+      --muted: #8A7F78;
+
+      --lavender: #A78AA3;
+      --lavender-dark: #92758F;
+      --lavender-soft: #E8DDE5;
+
+      --line: #E3D8CF;
+      --gold: #BEA17C;
+
+      --shadow-soft: 0 18px 50px rgba(65, 52, 43, 0.06);
+
       --deco-petal-beige: #dcc2a6;
       --deco-petal-lilac: #b8a3c2;
       --deco-petal-mauve: #98799a;
@@ -45,15 +49,13 @@
     body {
       margin: 0;
       font-family:
+        "Zen Kaku Gothic New",
         "Hiragino Kaku Gothic ProN",
         "Hiragino Sans",
         "Yu Gothic",
         "YuGothic",
-        "Noto Sans JP",
-        -apple-system,
-        BlinkMacSystemFont,
         sans-serif;
-      color: var(--deco-charcoal);
+      color: var(--ink);
       background:
         radial-gradient(circle at 10% 0%, rgba(255,255,255,.8), transparent 30%),
         var(--bg);
@@ -62,18 +64,21 @@
     }
     a { color: inherit; }
     button, input, textarea, select { font: inherit; }
-    .wrap { width: min(100% - 32px, 1040px); margin-inline: auto; }
+    .wrap {
+      width: min(calc(100% - 72px), 1280px);
+      margin-inline: auto;
+    }
 
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(247, 242, 235, 0.88);
+      background: rgba(247, 243, 238, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(230,221,212,.7);
+      border-bottom: 1px solid #E8DED6;
     }
     .nav {
-      min-height: 64px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -83,13 +88,13 @@
       position: relative;
       display: inline-flex;
       align-items: center;
-      color: var(--deco-charcoal);
+      color: var(--ink);
     }
     .brand-ja {
-      font-size: 22px;
+      font-size: 24px;
       line-height: 1;
-      font-weight: 600;
-      letter-spacing: .08em;
+      font-weight: 500;
+      letter-spacing: .07em;
     }
     .brand-petals {
       position: absolute;
@@ -129,20 +134,27 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      padding: 0 16px;
+      min-height: 44px;
+      padding: 0 22px;
       border-radius: 999px;
+      background: var(--lavender);
       color: #fff;
-      background: var(--deco-lavender-dark);
       text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      box-shadow: none;
+    }
+    .nav-cta:hover {
+      background: var(--lavender-dark);
     }
 
-    .hero { padding: 30px 0 58px; }
+    .hero {
+      padding: 36px 0 96px;
+    }
     .hero-shell {
       position: relative;
-      min-height: 560px;
+      min-height: 640px;
       overflow: hidden;
       border-radius: 32px;
       border: 1px solid rgba(100,82,68,.10);
@@ -179,23 +191,23 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      width: min(50%, 520px);
-      min-height: 560px;
+      width: 46%;
+      min-height: 640px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 54px 0 54px 58px;
+      padding: 68px 0 68px 64px;
     }
     .eyebrow {
       display: block;
       width: fit-content;
-      margin-bottom: 23px;
+      margin-bottom: 24px;
       padding: 0;
       border: 0;
       border-radius: 0;
       background: transparent;
       backdrop-filter: none;
-      color: #776d67;
+      color: #81756F;
       font-size: 12px;
       font-weight: 500;
       letter-spacing: .12em;
@@ -210,24 +222,25 @@
       position: relative;
       width: fit-content;
       margin: 0;
-      color: var(--deco-charcoal);
+      color: var(--ink);
       line-height: 1;
     }
     .hero-brand-ja {
       display: block;
-      font-size: clamp(52px, 6vw, 76px);
+      font-size: 64px;
       font-weight: 500;
       letter-spacing: .08em;
+      line-height: 1;
     }
     .hero-brand-en {
       display: block;
-      margin-top: 13px;
+      margin-top: 14px;
       padding-left: 8px;
-      font-size: 13px;
-      line-height: 1;
+      font-family: "Manrope", sans-serif;
+      font-size: 12px;
       font-weight: 500;
       letter-spacing: .58em;
-      color: var(--deco-charcoal-soft);
+      color: var(--text);
     }
     .hero-brand-petals {
       position: absolute;
@@ -264,170 +277,353 @@
       transform: rotate(42deg);
     }
     .lead {
-      margin: 36px 0 0;
-      color: var(--deco-charcoal);
-      font-size: clamp(35px, 4.1vw, 55px);
-      line-height: 1.48;
-      font-weight: 600;
+      margin: 38px 0 0;
+      color: var(--ink);
+      font-size: 52px;
+      line-height: 1.42;
+      font-weight: 500;
       letter-spacing: .025em;
     }
     .hero-divider {
-      width: 122px;
+      width: 112px;
       height: 1px;
       margin: 28px 0 24px;
-      background: var(--deco-line);
+      background: #CDBCAE;
     }
     .sublead {
-      max-width: 455px;
-      margin: 0 0 29px;
-      color: var(--deco-charcoal-soft);
+      max-width: 445px;
+      margin: 0 0 30px;
+      color: var(--text);
       font-size: 16px;
       line-height: 1.9;
       font-weight: 400;
-      letter-spacing: .04em;
+      letter-spacing: .035em;
     }
     .hero-cta {
       display: inline-flex;
       width: fit-content;
       align-items: center;
       justify-content: center;
-      min-height: 58px;
-      padding: 0 31px;
+      min-height: 56px;
+      padding: 0 32px;
       border-radius: 999px;
-      background: linear-gradient(
-        90deg,
-        var(--deco-lavender) 0%,
-        #ad8baa 100%
-      );
-      color: #ffffff;
+      background: var(--lavender);
+      color: #fff;
       text-decoration: none;
       font-size: 16px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      box-shadow: 0 9px 24px rgba(133, 102, 129, .18);
-      transition: transform .18s ease, box-shadow .18s ease;
+      font-weight: 500;
+      letter-spacing: .06em;
+      box-shadow: 0 8px 22px rgba(120, 91, 116, 0.14);
+      transition:
+        transform .18s ease,
+        background .18s ease,
+        box-shadow .18s ease;
     }
     .hero-cta:hover {
       transform: translateY(-1px);
-      background: linear-gradient(
-        90deg,
-        #ae8cab 0%,
-        var(--deco-lavender-dark) 100%
-      );
-      box-shadow: 0 12px 28px rgba(133, 102, 129, .22);
+      background: var(--lavender-dark);
+      box-shadow: 0 10px 26px rgba(120, 91, 116, 0.18);
     }
     .microcopy { margin: 12px 0 0; font-size: 12px; color: #756a63; }
 
-    section { padding: 68px 0; }
+    section {
+      padding: 112px 0;
+    }
     .section-head { max-width: 720px; margin-bottom: 28px; }
     .section-kicker {
-      color: #967c91;
-      font-weight: 600;
+      color: var(--lavender);
+      font-family: "Manrope", sans-serif;
       font-size: 12px;
-      letter-spacing: .2em;
+      font-weight: 600;
+      letter-spacing: .24em;
     }
     h2 {
-      margin: 7px 0 12px;
-      color: var(--deco-charcoal);
-      font-size: clamp(28px, 7vw, 44px);
+      margin: 8px 0 14px;
+      color: var(--ink);
+      font-size: 44px;
       line-height: 1.5;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: .025em;
     }
-    .section-copy { margin: 0; color: var(--muted); }
-
-    .concept-card {
-      border-radius: var(--radius);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 28px;
-      box-shadow: var(--shadow);
+    .section-copy {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 2;
+      font-weight: 400;
     }
-    .concept-card strong { font-size: 20px; }
 
-    .feature-grid { display: grid; gap: 14px; }
+    #concept {
+      border-top: 1px solid var(--line);
+    }
+    .concept-layout {
+      display: grid;
+      grid-template-columns: 42% 50%;
+      justify-content: space-between;
+      align-items: start;
+    }
+    .concept-right strong {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+    .concept-right p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 2;
+    }
+
+    .planned-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--lavender-soft);
+      color: #826A7F;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+    }
     .feature {
-      padding: 22px;
-      border-radius: 22px;
+      min-height: 250px;
+      padding: 34px 30px;
       border: 1px solid var(--line);
-      background: rgba(255,253,250,.74);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: none;
     }
-    .feature-no { font-size: 12px; font-weight: 800; color: var(--accent); }
-    .feature h3 { margin: 7px 0 6px; font-size: 19px; }
-    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+    .feature-no {
+      color: var(--lavender);
+      font-family: "Manrope", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
+    }
+    .feature h3 {
+      margin: 24px 0 10px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.95;
+      font-weight: 400;
+    }
 
     .safety {
       display: grid;
-      gap: 18px;
-      padding: 28px;
+      grid-template-columns: 42% 50%;
+      justify-content: space-between;
+      gap: 0;
+      padding: 56px;
       border-radius: 28px;
-      background: #ebe4dc;
+      background: var(--paper-soft);
+      box-shadow: none;
     }
     .safety h2 { margin-top: 0; }
+    .safety .section-copy {
+      max-width: 440px;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 2;
+    }
     .safety-list { display: grid; gap: 10px; }
     .safety-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px 16px;
-      background: rgba(255,255,255,.55);
-      border-radius: 18px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(90, 75, 66, 0.14);
+      border-radius: 0;
+      background: transparent;
     }
-    .safety-item b { font-size: 14px; }
-    .safety-item span { display: block; color: var(--muted); font-size: 13px; }
+    .safety-no {
+      padding-top: 2px;
+      color: var(--lavender);
+      font-family: "Manrope", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+    }
+    .safety-item b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .safety-item span {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+
+    .enjoy-layout {
+      display: grid;
+      grid-template-columns: 46% 46%;
+      justify-content: space-between;
+      align-items: start;
+    }
+    .enjoy-line {
+      width: 64px;
+      height: 1px;
+      margin: 8px 0 28px;
+      background: var(--gold);
+    }
+    .enjoy-right strong {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+    .enjoy-right p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 2.05;
+      font-weight: 400;
+    }
 
     .waitlist {
-      padding: 34px 24px;
+      display: grid;
+      grid-template-columns: 34% 58%;
+      justify-content: space-between;
+      gap: 8%;
+      padding: 56px;
+      border: 1px solid var(--line);
       border-radius: 30px;
-      border: 1px solid var(--line);
       background: var(--paper);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-soft);
     }
-    .waitlist h2 { margin-top: 0; }
-    form { display: grid; gap: 15px; margin-top: 24px; }
-    .field { display: grid; gap: 7px; }
-    label { font-size: 13px; font-weight: 800; }
-    .optional { font-weight: 500; color: var(--muted); }
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: #fff;
+    .waitlist h2 {
+      margin: 8px 0 18px;
       color: var(--ink);
-      padding: 13px 14px;
-      outline: none;
-      transition: border .2s, box-shadow .2s;
+      font-size: 40px;
+      line-height: 1.5;
+      font-weight: 500;
     }
-    textarea { min-height: 112px; resize: vertical; }
-    input:focus, textarea:focus, select:focus {
-      border-color: #a88f82;
-      box-shadow: 0 0 0 3px rgba(138,111,99,.12);
+    .waitlist-intro {
+      max-width: 320px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.95;
+      font-weight: 400;
+    }
+    form {
+      display: grid;
+      gap: 20px;
+      margin-top: 0;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    label {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .025em;
+    }
+    .optional {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid #DED3CA;
+      border-radius: 12px;
+      background: #FFFEFC;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 400;
+      outline: none;
+      transition:
+        border-color .18s ease,
+        box-shadow .18s ease;
+    }
+    input,
+    select {
+      min-height: 58px;
+      padding: 0 18px;
+    }
+    textarea {
+      min-height: 130px;
+      padding: 16px 18px;
+      resize: vertical;
+    }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--lavender);
+      box-shadow: 0 0 0 3px rgba(167, 138, 163, .10);
     }
     .submit {
-      min-height: 54px;
+      width: 100%;
+      min-height: 58px;
       border: 0;
       border-radius: 999px;
-      color: #ffffff;
-      background: var(--deco-lavender-dark);
-      font-weight: 700;
-      letter-spacing: .05em;
+      background: var(--lavender);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .06em;
       cursor: pointer;
+      transition: background .18s ease;
+    }
+    .submit:hover {
+      background: var(--lavender-dark);
     }
     .submit:disabled { opacity: .55; cursor: wait; }
-    .form-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .form-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
     .status { display: none; padding: 15px 16px; border-radius: 14px; font-size: 14px; }
     .status.show { display: block; }
     .status.success { background: #edf4ed; }
     .status.error { background: #f7e9e9; }
 
-    footer { padding: 36px 0 54px; color: var(--muted); font-size: 12px; }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; border-top: 1px solid var(--line); padding-top: 22px; }
-
-    .section-copy,
-    .feature p,
-    .safety-item span,
-    .form-note {
-      color: var(--deco-charcoal-soft);
+    footer {
+      margin-top: 96px;
+      padding: 32px 0 48px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
     }
 
 
@@ -495,13 +691,17 @@
       .hero-cta {
         width: 100%;
       }
-    }
 
-    @media (min-width: 760px) {
-      .hero { padding: 34px 0 78px; }
-      .feature-grid { grid-template-columns: repeat(3, 1fr); }
-      .safety { grid-template-columns: .9fr 1.1fr; padding: 38px; }
-      .waitlist { padding: 46px; }
+      h2 { font-size: clamp(28px, 7vw, 44px); }
+      .concept-layout,
+      .feature-grid,
+      .safety,
+      .enjoy-layout,
+      .waitlist {
+        grid-template-columns: 1fr;
+      }
+      .safety { padding: 28px; }
+      .waitlist { padding: 34px 24px; gap: 24px; }
     }
   </style>
 </head>
@@ -554,12 +754,13 @@
     </section>
 
     <section id="concept">
-      <div class="wrap">
-        <div class="section-head">
+      <div class="wrap concept-layout">
+        <div class="concept-left">
           <div class="section-kicker">CONCEPT</div>
           <h2>デコのアイデアが、<br>次の作品につながる。</h2>
         </div>
-        <div class="concept-card">
+
+        <div class="concept-right">
           <strong>デコいろは、デコ作品を投稿・発見・保存できるコミュニティを目指しています。</strong>
           <p>気になるデコを見つけたり、お気に入りの作品を保存したり。自分のデコ作品を残しながら、次に作りたいもののヒントにも出会えます。</p>
         </div>
@@ -570,22 +771,23 @@
       <div class="wrap">
         <div class="section-head">
           <div class="section-kicker">WHAT YOU CAN DO</div>
-          <h2>デコいろでできること <span style="font-size:.5em;color:var(--muted);">（予定）</span></h2>
+          <h2>デコいろでできること</h2>
+          <span class="planned-badge">予定</span>
           <p class="section-copy">デコ作品を投稿して、見つけて、保存する。まずはシンプルな機能から始める予定です。</p>
         </div>
         <div class="feature-grid">
           <article class="feature">
-            <div class="feature-no">01</div>
+            <div class="feature-no">01 — POST</div>
             <h3>デコ作品を投稿する</h3>
             <p>完成したデコを写真で投稿。お気に入りの作品を、自分の記録として残せます。</p>
           </article>
           <article class="feature">
-            <div class="feature-no">02</div>
+            <div class="feature-no">02 — DISCOVER</div>
             <h3>好きなデコを見つける</h3>
             <p>硬質ケースデコ、手帳デコ、スマホケースデコ、痛バッグなど。いろいろなジャンルのデコ作品を見つけられます。</p>
           </article>
           <article class="feature">
-            <div class="feature-no">03</div>
+            <div class="feature-no">03 — SAVE</div>
             <h3>気になる作品を保存する</h3>
             <p>「あとで見たい」「作るときの参考にしたい」と思ったデコ作品を保存。次のデコづくりに役立てられます。</p>
           </article>
@@ -601,21 +803,25 @@
           <p class="section-copy">かわいいデコも、シンプルなデコも。推し活、手帳、スマホ、小物など、ジャンルやテイストにとらわれず楽しめます。</p>
         </div>
         <div class="safety-list">
-          <div class="safety-item"><div>♡</div><div><b>かわいいデコも</b><span>硬質ケースやぬい小物など、華やかなデコ作品も楽しめます。</span></div></div>
-          <div class="safety-item"><div>✦</div><div><b>シンプルなデコも</b><span>手帳やスマホなど、落ち着いたテイストのデコ作品も見つけられます。</span></div></div>
-          <div class="safety-item"><div>◌</div><div><b>ジャンルやテイストを越えて</b><span>推し活、文具、小物など、いろいろなデコ作品を一つの場所で楽しめます。</span></div></div>
+          <div class="safety-item"><div class="safety-no">01</div><div><b>かわいいデコも</b><span>硬質ケースやぬい小物など、華やかなデコ作品も楽しめます。</span></div></div>
+          <div class="safety-item"><div class="safety-no">02</div><div><b>シンプルなデコも</b><span>手帳やスマホなど、落ち着いたテイストのデコ作品も見つけられます。</span></div></div>
+          <div class="safety-item"><div class="safety-no">03</div><div><b>ジャンルやテイストを越えて</b><span>推し活、文具、小物など、いろいろなデコ作品を一つの場所で楽しめます。</span></div></div>
         </div>
       </div>
     </section>
 
     <section id="community">
-      <div class="wrap">
-        <div class="section-head">
+      <div class="wrap enjoy-layout">
+        <div class="enjoy-left">
           <div class="section-kicker">HOW TO ENJOY</div>
-          <h2>見るだけでも、投稿しても。</h2>
+          <h2>見るだけでも、<br>投稿しても。</h2>
         </div>
-        <div class="concept-card">
+
+        <div class="enjoy-right">
+          <div class="enjoy-line" aria-hidden="true"></div>
+
           <strong>デコいろは、それぞれの楽しみ方で使えるコミュニティを目指しています。</strong>
+
           <p>新しいデコを探したい。自分の作品を記録したい。次に作るデコのアイデアを集めたい。見る人も、投稿する人も、自分に合った使い方で楽しめる場所をつくります。</p>
         </div>
       </div>
@@ -624,9 +830,11 @@
     <section id="waitlist">
       <div class="wrap">
         <div class="waitlist">
-          <div class="section-kicker">WAITLIST</div>
-          <h2>デコいろを準備中です。</h2>
-          <p class="section-copy">現在、リリースに向けて準備を進めています。興味を持っていただけた方には、公開時にメールでお知らせします。</p>
+          <div class="waitlist-left">
+            <div class="section-kicker">WAITLIST</div>
+            <h2>デコいろを<br>準備中です。</h2>
+            <p class="waitlist-intro">現在、リリースに向けて準備を進めています。興味を持っていただけた方には、公開時にメールでお知らせします。</p>
+          </div>
 
           <!-- Formspree endpoint configured for デコいろ リリース通知 -->
           <form id="waitlistForm" action="https://formspree.io/f/myezrddy" method="POST">
