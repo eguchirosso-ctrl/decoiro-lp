@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>デコいろ｜デコ作品を投稿・発見・保存できるコミュニティ</title>
+  <meta name="description" content="硬質ケース、手帳、スマホケース、痛バッグ、ぬい小物など、いろいろなデコ作品を投稿・発見・保存できるコミュニティ「デコいろ」。" />
+  <meta name="theme-color" content="#f7f2eb" />
+  <link rel="preload" as="image" href="assets/decoiro-hero.webp" type="image/webp" fetchpriority="high" />
+  <meta property="og:title" content="デコいろ｜好きなデコを、もっと見つける。" />
+  <meta property="og:description" content="いろいろなデコ作品を投稿して、見つけて、保存。デコのアイデアが集まるコミュニティ「デコいろ」。" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #f7f2eb;
+      --paper: #fffdfa;
+      --paper-2: #f1ebe4;
+      --ink: #3e3834;
+      --muted: #746b65;
+      --line: #e6ddd4;
+      --accent: #8a6f63;
+      --accent-dark: #665047;
+      --soft: #e7dcd2;
+      --shadow: 0 14px 40px rgba(71, 57, 47, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,255,255,.8), transparent 30%),
+        var(--bg);
+      line-height: 1.75;
+      letter-spacing: .02em;
+    }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    .wrap { width: min(100% - 32px, 1040px); margin-inline: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 242, 235, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(230,221,212,.7);
+    }
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: .08em;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .hero { padding: 30px 0 58px; }
+    .hero-shell {
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+      border-radius: 32px;
+      border: 1px solid rgba(100,82,68,.10);
+      background: #f8f4ee;
+      box-shadow: 0 22px 60px rgba(71, 57, 47, 0.11);
+      isolation: isolate;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        90deg,
+        rgba(255,253,249,.98) 0%,
+        rgba(255,253,249,.94) 24%,
+        rgba(255,253,249,.76) 39%,
+        rgba(255,253,249,.26) 53%,
+        rgba(255,253,249,0) 68%
+      );
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(50%, 520px);
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 54px 0 54px 58px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: #6f625a;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(111,98,90,.16);
+      border-radius: 999px;
+      padding: 7px 12px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(6px);
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: .08em;
+    }
+    .lead {
+      margin: 20px 0 7px;
+      font-size: clamp(24px, 3vw, 35px);
+      line-height: 1.45;
+      font-weight: 780;
+      letter-spacing: .01em;
+    }
+    .sublead {
+      margin: 0 0 28px;
+      color: #675e58;
+      font-size: 17px;
+      font-weight: 520;
+    }
+    .hero-cta {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 26px;
+      border-radius: 999px;
+      background: #4d4038;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(53,42,36,.18);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .hero-cta:hover { transform: translateY(-1px); background: #3f342e; }
+    .microcopy { margin: 12px 0 0; font-size: 12px; color: #756a63; }
+
+    section { padding: 68px 0; }
+    .section-head { max-width: 720px; margin-bottom: 28px; }
+    .section-kicker { color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: .12em; }
+    h2 { margin: 7px 0 12px; font-size: clamp(28px, 7vw, 44px); line-height: 1.35; }
+    .section-copy { margin: 0; color: var(--muted); }
+
+    .concept-card {
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .concept-card strong { font-size: 20px; }
+
+    .feature-grid { display: grid; gap: 14px; }
+    .feature {
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,253,250,.74);
+    }
+    .feature-no { font-size: 12px; font-weight: 800; color: var(--accent); }
+    .feature h3 { margin: 7px 0 6px; font-size: 19px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .safety {
+      display: grid;
+      gap: 18px;
+      padding: 28px;
+      border-radius: 28px;
+      background: #ebe4dc;
+    }
+    .safety h2 { margin-top: 0; }
+    .safety-list { display: grid; gap: 10px; }
+    .safety-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.55);
+      border-radius: 18px;
+    }
+    .safety-item b { font-size: 14px; }
+    .safety-item span { display: block; color: var(--muted); font-size: 13px; }
+
+    .waitlist {
+      padding: 34px 24px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .waitlist h2 { margin-top: 0; }
+    form { display: grid; gap: 15px; margin-top: 24px; }
+    .field { display: grid; gap: 7px; }
+    label { font-size: 13px; font-weight: 800; }
+    .optional { font-weight: 500; color: var(--muted); }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      padding: 13px 14px;
+      outline: none;
+      transition: border .2s, box-shadow .2s;
+    }
+    textarea { min-height: 112px; resize: vertical; }
+    input:focus, textarea:focus, select:focus {
+      border-color: #a88f82;
+      box-shadow: 0 0 0 3px rgba(138,111,99,.12);
+    }
+    .submit {
+      min-height: 54px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent-dark);
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .submit:disabled { opacity: .55; cursor: wait; }
+    .form-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .status { display: none; padding: 15px 16px; border-radius: 14px; font-size: 14px; }
+    .status.show { display: block; }
+    .status.success { background: #edf4ed; }
+    .status.error { background: #f7e9e9; }
+
+    footer { padding: 36px 0 54px; color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; border-top: 1px solid var(--line); padding-top: 22px; }
+
+
+    @media (max-width: 759px) {
+      .wrap { width: min(100% - 22px, 1040px); }
+      .hero { padding: 16px 0 46px; }
+      .hero-shell {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: 24px;
+      }
+      .hero-content {
+        order: 1;
+        width: 100%;
+        min-height: 0;
+        padding: 34px 24px 28px;
+        background: linear-gradient(180deg, #fffdfa 0%, #faf6f0 100%);
+      }
+      .hero-media {
+        order: 2;
+        position: relative;
+        inset: auto;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+      }
+      .hero-media img {
+        object-position: 69% center;
+      }
+      .hero-shade { display: none; }
+      .eyebrow { margin-bottom: 15px; }
+      h1 { font-size: clamp(46px, 16vw, 64px); }
+      .lead { margin-top: 18px; font-size: clamp(24px, 7.6vw, 31px); }
+      .sublead { font-size: 16px; margin-bottom: 24px; }
+      .hero-cta { width: 100%; }
+      .microcopy { text-align: center; }
+    }
+
+    @media (min-width: 760px) {
+      .hero { padding: 34px 0 78px; }
+      .feature-grid { grid-template-columns: repeat(3, 1fr); }
+      .safety { grid-template-columns: .9fr 1.1fr; padding: 38px; }
+      .waitlist { padding: 46px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">デコいろ</div>
+      <a class="nav-cta" href="#waitlist">リリース通知を受け取る</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-shell">
+          <div class="hero-media" aria-hidden="true">
+            <img src="assets/decoiro-hero.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="hero-shade" aria-hidden="true"></div>
+          <div class="hero-content">
+            <div class="eyebrow">✦ デコ作品が集まる新しいコミュニティ</div>
+            <h1 id="hero-title">デコいろ</h1>
+            <p class="lead">好きなデコを、<br>もっと見つける。</p>
+            <p class="sublead">硬質ケース、手帳、スマホケース、痛バッグ、ぬい小物。いろいろなデコ作品を投稿して、見つけて、保存できるコミュニティ。</p>
+            <a class="hero-cta" href="#waitlist">リリース通知を受け取る</a>
+            <p class="microcopy">登録は無料です。リリース時にお知らせします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">CONCEPT</div>
+          <h2>デコのアイデアが、<br>次の作品につながる。</h2>
+        </div>
+        <div class="concept-card">
+          <strong>デコいろは、デコ作品を投稿・発見・保存できるコミュニティを目指しています。</strong>
+          <p>気になるデコを見つけたり、お気に入りの作品を保存したり。自分のデコ作品を残しながら、次に作りたいもののヒントにも出会えます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">WHAT YOU CAN DO</div>
+          <h2>デコいろでできること <span style="font-size:.5em;color:var(--muted);">（予定）</span></h2>
+          <p class="section-copy">デコ作品を投稿して、見つけて、保存する。まずはシンプルな機能から始める予定です。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <div class="feature-no">01</div>
+            <h3>デコ作品を投稿する</h3>
+            <p>完成したデコを写真で投稿。お気に入りの作品を、自分の記録として残せます。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-no">02</div>
+            <h3>好きなデコを見つける</h3>
+            <p>硬質ケースデコ、手帳デコ、スマホケースデコ、痛バッグなど。いろいろなジャンルのデコ作品を見つけられます。</p>
+          </article>
+          <article class="feature">
+            <div class="feature-no">03</div>
+            <h3>気になる作品を保存する</h3>
+            <p>「あとで見たい」「作るときの参考にしたい」と思ったデコ作品を保存。次のデコづくりに役立てられます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="safe">
+      <div class="wrap safety">
+        <div>
+          <div class="section-kicker">COMMUNITY</div>
+          <h2>いろいろなデコが<br>集まる場所。</h2>
+          <p class="section-copy">かわいいデコも、シンプルなデコも。推し活、手帳、スマホ、小物など、ジャンルやテイストにとらわれず楽しめます。</p>
+        </div>
+        <div class="safety-list">
+          <div class="safety-item"><div>♡</div><div><b>かわいいデコも</b><span>硬質ケースやぬい小物など、華やかなデコ作品も楽しめます。</span></div></div>
+          <div class="safety-item"><div>✦</div><div><b>シンプルなデコも</b><span>手帳やスマホなど、落ち着いたテイストのデコ作品も見つけられます。</span></div></div>
+          <div class="safety-item"><div>◌</div><div><b>ジャンルやテイストを越えて</b><span>推し活、文具、小物など、いろいろなデコ作品を一つの場所で楽しめます。</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">HOW TO ENJOY</div>
+          <h2>見るだけでも、投稿しても。</h2>
+        </div>
+        <div class="concept-card">
+          <strong>デコいろは、それぞれの楽しみ方で使えるコミュニティを目指しています。</strong>
+          <p>新しいデコを探したい。自分の作品を記録したい。次に作るデコのアイデアを集めたい。見る人も、投稿する人も、自分に合った使い方で楽しめる場所をつくります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist">
+      <div class="wrap">
+        <div class="waitlist">
+          <div class="section-kicker">WAITLIST</div>
+          <h2>デコいろを準備中です。</h2>
+          <p class="section-copy">現在、リリースに向けて準備を進めています。興味を持っていただけた方には、公開時にメールでお知らせします。</p>
+
+          <!-- Formspree endpoint configured for デコいろ リリース通知 -->
+          <form id="waitlistForm" action="https://formspree.io/f/myezrddy" method="POST">
+            <div class="field">
+              <label for="email">メールアドレス <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="nickname">ニックネーム <span class="optional">（任意）</span></label>
+              <input id="nickname" name="nickname" type="text" autocomplete="nickname" maxlength="40" placeholder="デコちゃん" />
+            </div>
+
+            <div class="field">
+              <label for="favorite_deco">どんなデコが好きですか？ <span class="optional">（任意）</span></label>
+              <select id="favorite_deco" name="favorite_deco">
+                <option value="">選択してください</option>
+                <option>硬質ケースデコ・トレカデコ</option>
+                <option>痛バッグ</option>
+                <option>手帳デコ・シールデコ</option>
+                <option>スマホケースデコ</option>
+                <option>ぬい小物</option>
+                <option>アクスタケースデコ</option>
+                <option>ホイップデコ・レジンデコ</option>
+                <option>コラージュ</option>
+                <option>その他</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="expectation">デコいろに期待すること <span class="optional">（任意）</span></label>
+              <textarea id="expectation" name="expectation" maxlength="600" placeholder="こんな機能があったら使いたい、こんな雰囲気だとうれしい、など"></textarea>
+            </div>
+
+            <input type="hidden" name="utm_source" id="utm_source" />
+            <input type="hidden" name="utm_medium" id="utm_medium" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" />
+            <input type="hidden" name="utm_content" id="utm_content" />
+            <input type="hidden" name="utm_term" id="utm_term" />
+            <input type="hidden" name="landing_url" id="landing_url" />
+            <input type="hidden" name="referrer" id="referrer" />
+            <input type="hidden" name="_subject" value="デコいろ ウェイトリスト登録" />
+
+            <button class="submit" id="submitBtn" type="submit">リリース通知を受け取る</button>
+            <p class="form-note">登録いただいたメールアドレスは、「デコいろ」のリリース案内・需要検証に関する連絡のために使用します。</p>
+            <div id="formSuccess" class="status success" role="status">登録ありがとうございます。リリース時にお知らせします。</div>
+            <div id="formError" class="status error" role="alert">送信できませんでした。時間をおいて、もう一度お試しください。</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 デコいろ</span>
+      <span>デコ作品の投稿・発見・保存をひとつの場所に。</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach((key) => {
+        const el = document.getElementById(key);
+        if (el) el.value = params.get(key) || "";
+      });
+      document.getElementById("landing_url").value = window.location.href;
+      document.getElementById("referrer").value = document.referrer || "";
+
+      const form = document.getElementById("waitlistForm");
+      const button = document.getElementById("submitBtn");
+      const success = document.getElementById("formSuccess");
+      const error = document.getElementById("formError");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        success.classList.remove("show");
+        error.classList.remove("show");
+
+        if (form.action.includes("YOUR_FORM_ID")) {
+          error.textContent = "FormspreeのフォームIDがまだ設定されていません。公開前に YOUR_FORM_ID を置き換えてください。";
+          error.classList.add("show");
+          return;
+        }
+
+        button.disabled = true;
+        const originalText = button.textContent;
+        button.textContent = "送信中…";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) throw new Error("Form submission failed");
+
+          form.reset();
+          success.classList.add("show");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch (e) {
+          error.textContent = "送信できませんでした。時間をおいて、もう一度お試しください。";
+          error.classList.add("show");
+        } finally {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
