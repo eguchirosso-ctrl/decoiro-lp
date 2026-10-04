@@ -627,6 +627,451 @@
     }
 
 
+    /* Fallback for browsers without Media Queries Level 4 range syntax (e.g. Safari 16.3 and earlier). Keep in sync with the range blocks below. */
+    @media (min-width: 950px) and (max-width: 1179.98px) {
+      .wrap {
+        width: min(calc(100% - 48px), 1100px);
+      }
+      section {
+        padding: 92px 0;
+      }
+      .hero {
+        padding: 28px 0 82px;
+      }
+      .hero-shell {
+        min-height: 650px;
+      }
+      .hero-content {
+        width: 53%;
+        min-height: 650px;
+        padding: 52px 0 52px 44px;
+      }
+      .hero-brand-ja {
+        font-size: 56px;
+      }
+      .lead {
+        margin-top: 34px;
+        font-size: 44px;
+        line-height: 1.45;
+      }
+      .sublead {
+        max-width: 405px;
+        font-size: 15px;
+        line-height: 1.85;
+      }
+      h2 {
+        font-size: 38px;
+      }
+      .concept-layout,
+      .enjoy-layout {
+        grid-template-columns: 44% 50%;
+      }
+      .feature-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .feature {
+        min-height: 270px;
+        padding: 28px 22px;
+      }
+      .feature h3 {
+        font-size: 19px;
+      }
+      .feature p {
+        font-size: 14px;
+      }
+      .safety {
+        grid-template-columns: 42% 52%;
+        padding: 42px;
+      }
+      .waitlist {
+        grid-template-columns: 36% 58%;
+        gap: 6%;
+        padding: 44px;
+      }
+      .waitlist h2 {
+        font-size: 35px;
+      }
+    }
+
+    @media (min-width: 760px) and (max-width: 949.98px) {
+      .wrap {
+        width: min(calc(100% - 40px), 860px);
+      }
+      section {
+        padding: 82px 0;
+      }
+
+      /* HEADER */
+      .nav {
+        min-height: 68px;
+      }
+
+      /* HERO: text on top, image below */
+      .hero {
+        padding: 24px 0 76px;
+      }
+      .hero-shell {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 28px;
+      }
+      .hero-content {
+        order: 1;
+        width: 100%;
+        min-height: 0;
+        padding: 50px 48px 42px;
+        background:
+          linear-gradient(
+            180deg,
+            #FFFDFC 0%,
+            #FAF6F1 100%
+          );
+      }
+      .hero-media {
+        order: 2;
+        position: relative;
+        inset: auto;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+      }
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 69% center;
+      }
+      .hero-shade {
+        display: none;
+      }
+      .hero-brand-ja {
+        font-size: 56px;
+      }
+      .hero-brand-en {
+        margin-top: 12px;
+        font-size: 11px;
+        letter-spacing: .54em;
+      }
+      .lead {
+        margin-top: 34px;
+        font-size: 42px;
+        line-height: 1.47;
+      }
+      .hero-divider {
+        width: 100px;
+        margin: 26px 0 22px;
+      }
+      .sublead {
+        max-width: 570px;
+        margin-bottom: 28px;
+        font-size: 15px;
+        line-height: 1.9;
+      }
+      .hero-cta {
+        min-height: 56px;
+      }
+
+      /* Common headings */
+      h2 {
+        font-size: 36px;
+        line-height: 1.55;
+      }
+
+      /* CONCEPT */
+      .concept-layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+      .concept-right {
+        max-width: 680px;
+      }
+
+      /* WHAT YOU CAN DO */
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .feature {
+        min-height: 0;
+        padding: 30px 26px;
+      }
+      .feature:last-child {
+        grid-column: 1 / -1;
+      }
+      .feature h3 {
+        font-size: 20px;
+        line-height: 1.55;
+      }
+      .feature p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      /* COMMUNITY */
+      .safety {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 44px;
+      }
+      .safety .section-copy {
+        max-width: 620px;
+      }
+
+      /* HOW TO ENJOY */
+      .enjoy-layout {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+      .enjoy-right {
+        max-width: 680px;
+      }
+
+      /* WAITLIST */
+      .waitlist {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 44px;
+      }
+      .waitlist h2 {
+        font-size: 36px;
+      }
+      .waitlist-intro {
+        max-width: 560px;
+      }
+
+      /* FOOTER */
+      footer {
+        margin-top: 82px;
+      }
+    }
+
+    @media (max-width: 759.98px) {
+      .wrap {
+        width: min(calc(100% - 40px), 640px);
+      }
+      section {
+        padding: 76px 0;
+      }
+
+      /* HEADER */
+      .nav {
+        min-height: 64px;
+      }
+      .brand-ja {
+        font-size: 20px;
+      }
+      .nav-cta {
+        min-height: 40px;
+        padding: 0 15px;
+        font-size: 12px;
+        letter-spacing: .025em;
+      }
+      .brand-petals {
+        left: 28px;
+        top: -11px;
+        transform: scale(.84);
+        transform-origin: left bottom;
+      }
+
+      /* HERO: text on top, image below */
+      .hero {
+        padding: 18px 0 68px;
+      }
+      .hero-shell {
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 24px;
+      }
+      .hero-content {
+        order: 1;
+        width: 100%;
+        min-height: 0;
+        padding: 38px 24px 32px;
+        background: linear-gradient(180deg, #fffdfa 0%, #faf6f0 100%);
+      }
+      .hero-media {
+        order: 2;
+        position: relative;
+        inset: auto;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+      }
+      .hero-media img {
+        object-position: 69% center;
+      }
+      .hero-shade { display: none; }
+      .eyebrow { margin-bottom: 15px; }
+      h1 { font-size: clamp(46px, 16vw, 64px); }
+      .hero-brand-ja {
+        font-size: 50px;
+      }
+      .hero-brand-en {
+        margin-top: 11px;
+        font-size: 10px;
+        letter-spacing: .5em;
+      }
+      .hero-brand-petals {
+        left: 73px;
+        top: -12px;
+        transform: scale(.85);
+        transform-origin: left top;
+      }
+      .lead {
+        margin-top: 31px;
+        font-size: 34px;
+        line-height: 1.5;
+      }
+      .hero-divider {
+        width: 82px;
+        margin: 23px 0 20px;
+      }
+      .sublead {
+        max-width: none;
+        margin-bottom: 26px;
+        font-size: 15px;
+        line-height: 1.9;
+      }
+      .hero-cta {
+        width: 100%;
+        min-height: 54px;
+        font-size: 15px;
+      }
+      .microcopy {
+        margin-top: 11px;
+        text-align: center;
+      }
+
+      /* Common headings */
+      h2 {
+        font-size: 31px;
+        line-height: 1.55;
+      }
+      .section-kicker {
+        font-size: 11px;
+        letter-spacing: .2em;
+      }
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      /* CONCEPT */
+      .concept-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+      .concept-right strong {
+        margin-bottom: 18px;
+        font-size: 18px;
+        line-height: 1.85;
+      }
+      .concept-right p {
+        font-size: 15px;
+        line-height: 2;
+      }
+
+      /* WHAT YOU CAN DO */
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .feature {
+        min-height: 0;
+        padding: 27px 24px 28px;
+        border-radius: 16px;
+      }
+      .feature h3 {
+        margin-top: 18px;
+        font-size: 20px;
+      }
+      .feature p {
+        font-size: 14px;
+        line-height: 1.9;
+      }
+
+      /* COMMUNITY */
+      .safety {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 34px 24px;
+        border-radius: 22px;
+      }
+      .safety-item {
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        padding: 20px 0;
+      }
+      .safety-item b {
+        font-size: 17px;
+      }
+      .safety-item span {
+        font-size: 14px;
+      }
+
+      /* HOW TO ENJOY */
+      .enjoy-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .enjoy-line {
+        width: 52px;
+        margin: 0 0 22px;
+      }
+      .enjoy-right strong {
+        margin-bottom: 17px;
+        font-size: 18px;
+        line-height: 1.85;
+      }
+      .enjoy-right p {
+        font-size: 15px;
+        line-height: 2;
+      }
+
+      /* WAITLIST */
+      .waitlist {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 22px;
+        border-radius: 22px;
+      }
+      .waitlist h2 {
+        margin: 7px 0 16px;
+        font-size: 30px;
+        line-height: 1.55;
+      }
+      .waitlist-intro {
+        max-width: none;
+        font-size: 14px;
+        line-height: 1.9;
+      }
+      form {
+        gap: 17px;
+      }
+      input,
+      select {
+        min-height: 54px;
+      }
+      textarea {
+        min-height: 120px;
+      }
+      .submit {
+        min-height: 56px;
+        font-size: 15px;
+      }
+
+      /* FOOTER */
+      footer {
+        margin-top: 62px;
+        padding: 28px 0 38px;
+      }
+      .footer-inner {
+        gap: 10px;
+      }
+    }
+
+    /* Range syntax (primary) */
     @media (950px <= width < 1180px) {
       .wrap {
         width: min(calc(100% - 48px), 1100px);
